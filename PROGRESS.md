@@ -10,6 +10,7 @@
 |---|-------|------|-------|-------|--------|------|
 | 001 | Product listing card | 1 | 5 | 87 | completed | 2026-09-28 |
 | 002 | Order line items list | 1 | 8 | 85 | completed | 2026-09-28 |
+| 003 | Fulfillment status banner | 1 | 11 | 92 | completed | 2026-09-28 |
 
 ## Rubric history
 
@@ -19,31 +20,38 @@
 | 001-R2 | 5 | 8 | 9 | 9 | 8 | 5 | 7 | 5 | 5 | 6 | **63** |
 | 001-R3 | 10 | 8 | 9 | 9 | 9 | 9 | 8 | 8 | 8 | 9 | **87** |
 | 002 | 10 | 8 | 9 | 9 | 9 | 8 | 7 | 9 | 7 | 9 | **85** |
+| 003 | 10 | 9 | 9 | 9 | 9 | 9 | 9 | 10 | 9 | 9 | **92** |
 
-### Problem 002 — notes
+### Problem 003 — notes
 
 | # | Score | Note |
 |---|-------|------|
-| 1 Correctness | 10 | 4/4 tests pass; empty + list branches correct. |
-| 2 Idiomatic React | 8 | Solid map/keys; use `=== true` for optional flags. |
-| 3 State design | 9 | Derived UI from props only. |
+| 1 Correctness | 10 | 8/8 cases pass; copy and classes exact. |
+| 2 Idiomatic React | 9 | Status map pattern scales well; minor `_props` nit. |
+| 3 State design | 9 | Pure derivation from props. |
 | 4 Effects | 9 | None required. |
-| 5 Performance | 9 | No unnecessary work. |
-| 6 Composition | 8 | Appropriate single component. |
-| 7 Readability | 7 | Large pasted spec comments should be removed in real PRs. |
-| 8 Edge cases | 9 | Empty array and `backordered: false` handled. |
-| 9 Accessibility | 7 | `ul`/`li` semantics good; no live region for empty (not required here). |
-| 10 Testability / types | 9 | Types exported; test ids match contract. |
+| 5 Performance | 9 | Config object defined outside component. |
+| 6 Composition | 9 | Single focused banner component. |
+| 7 Readability | 9 | Clear map + JSX; could extract `showTracking` local. |
+| 8 Edge cases | 10 | Empty `trackingNumber` and wrong status both handled. |
+| 9 Accessibility | 9 | `role="status"` on root. |
+| 10 Testability / types | 9 | Exported types; stable test ids. |
 
 ## Running weaknesses
 
-1. **Don’t paste requirements into source** — keep implementation files clean.
-2. **Strict boolean props** — prefer `flag === true` over `flag &&` for API-driven booleans.
-3. **Read element type in spec** — (from 001) match design-system elements when specified.
+1. **Strict boolean props** — prefer `flag === true` over `flag &&` when API sends booleans (002 feedback).
+2. **Keep solution files free of pasted specs** — (002) requirements belong in `PROBLEM.md` only.
+3. **Match design-system element types** when spec names them (001 status `<span>`).
+
+## Strengths (building)
+
+- Lookup/config maps for variant UI (003).
+- Contract-first development — tests green without re-grade loops on 002–003.
 
 ## Advancement
 
-- **002 complete** (85). **003** when you say **ready** or **next**.
+- **003 complete** (92). **004** when you say **next**.
+- Two consecutive 90+ scores unlock skip rule — need one more 90+ on 004 to consider skip.
 
 ## Notes
 
