@@ -11,6 +11,8 @@
 | 001 | Product listing card | 1 | 5 | 87 | completed | 2026-09-28 |
 | 002 | Order line items list | 1 | 8 | 85 | completed | 2026-09-28 |
 | 003 | Fulfillment status banner | 1 | 11 | 92 | completed | 2026-09-28 |
+| 004 | Cart quantity stepper | 1 | 14 | 88 | completed | 2026-09-28 |
+| 005 | Support note field | 1 | 17 | — | in_progress | 2026-09-28 |
 
 ## Rubric history
 
@@ -21,37 +23,38 @@
 | 001-R3 | 10 | 8 | 9 | 9 | 9 | 9 | 8 | 8 | 8 | 9 | **87** |
 | 002 | 10 | 8 | 9 | 9 | 9 | 8 | 7 | 9 | 7 | 9 | **85** |
 | 003 | 10 | 9 | 9 | 9 | 9 | 9 | 9 | 10 | 9 | 9 | **92** |
+| 004 | 10 | 7 | 10 | 9 | 9 | 8 | 7 | 9 | 10 | 9 | **88** |
 
-### Problem 003 — notes
+### Problem 004 — notes
 
 | # | Score | Note |
 |---|-------|------|
-| 1 Correctness | 10 | 8/8 cases pass; copy and classes exact. |
-| 2 Idiomatic React | 9 | Status map pattern scales well; minor `_props` nit. |
-| 3 State design | 9 | Pure derivation from props. |
+| 1 Correctness | 10 | 5/5 tests pass; controlled pattern correct. |
+| 2 Idiomatic React | 7 | Unneeded `import React`; import order / formatting. |
+| 3 State design | 10 | No local quantity state — textbook controlled widget. |
 | 4 Effects | 9 | None required. |
-| 5 Performance | 9 | Config object defined outside component. |
-| 6 Composition | 9 | Single focused banner component. |
-| 7 Readability | 9 | Clear map + JSX; could extract `showTracking` local. |
-| 8 Edge cases | 10 | Empty `trackingNumber` and wrong status both handled. |
-| 9 Accessibility | 9 | `role="status"` on root. |
-| 10 Testability / types | 9 | Exported types; stable test ids. |
+| 5 Performance | 9 | Fine for scope. |
+| 6 Composition | 8 | Appropriate single widget. |
+| 7 Readability | 7 | Dense one-line JSX; empty comments. |
+| 8 Edge cases | 9 | `disabled` covers bounds; optional handler guard omitted. |
+| 9 Accessibility | 10 | Correct `aria-label`s and `type="button"`. |
+| 10 Testability / types | 9 | Contract met. |
 
 ## Running weaknesses
 
-1. **Strict boolean props** — prefer `flag === true` over `flag &&` when API sends booleans (002 feedback).
-2. **Keep solution files free of pasted specs** — (002) requirements belong in `PROBLEM.md` only.
-3. **Match design-system element types** when spec names them (001 status `<span>`).
+1. **Imports & formatting** — drop default React import; use formatter (004).
+2. **Strict boolean props** — (002) `=== true` for API flags when specified.
+3. **Keep solution files clean** — no pasted specs or empty comment blocks.
 
 ## Strengths (building)
 
-- Lookup/config maps for variant UI (003).
-- Contract-first development — tests green without re-grade loops on 002–003.
+- Controlled components without local duplicate state (004).
+- Config maps for variants (003).
 
 ## Advancement
 
-- **003 complete** (92). **004** when you say **next**.
-- Two consecutive 90+ scores unlock skip rule — need one more 90+ on 004 to consider skip.
+- **005 in progress** — controlled textarea + char counter.
+- Skip rule: need **two consecutive 90+** — 003 was 92, 004 was 88 (not eligible).
 
 ## Notes
 
