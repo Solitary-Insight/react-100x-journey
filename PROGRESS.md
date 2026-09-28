@@ -9,6 +9,7 @@
 | # | Title | Tier | Level | Total | Status | Date |
 |---|-------|------|-------|-------|--------|------|
 | 001 | Product listing card | 1 | 5 | 87 | completed | 2026-09-28 |
+| 002 | Order line items list | 1 | 8 | 85 | completed | 2026-09-28 |
 
 ## Rubric history
 
@@ -17,32 +18,32 @@
 | 001 | 5 | 7 | 9 | 9 | 9 | 4 | 6 | 5 | 5 | 5 | **58** |
 | 001-R2 | 5 | 8 | 9 | 9 | 8 | 5 | 7 | 5 | 5 | 6 | **63** |
 | 001-R3 | 10 | 8 | 9 | 9 | 9 | 9 | 8 | 8 | 8 | 9 | **87** |
+| 002 | 10 | 8 | 9 | 9 | 9 | 8 | 7 | 9 | 7 | 9 | **85** |
 
-### Problem 001 — final (attempt 3) notes
+### Problem 002 — notes
 
 | # | Score | Note |
 |---|-------|------|
-| 1 Correctness | 10 | 7/7 tests pass. |
-| 2 Idiomatic React | 8 | Clear destructuring and conditionals; minor style nits (`name,  sku` spacing). |
-| 3 State design | 9 | Presentational — no redundant state. |
+| 1 Correctness | 10 | 4/4 tests pass; empty + list branches correct. |
+| 2 Idiomatic React | 8 | Solid map/keys; use `=== true` for optional flags. |
+| 3 State design | 9 | Derived UI from props only. |
 | 4 Effects | 9 | None required. |
-| 5 Performance | 9 | Single `price` format — good. |
-| 6 Composition | 9 | Footer slot with `children`; `<footer>` is fine (spec said `div`). |
-| 7 Readability | 8 | Locals for status/classes read well. |
-| 8 Edge cases | 8 | `children &&` skips empty footer; `onSale` ternary is explicit. |
-| 9 Accessibility | 8 | `article` + title; semantic `<footer>` for actions; status still `<p>` vs spec `<span>`. |
-| 10 Testability / types | 9 | Matches contract; types exported. |
-
-**Infra note:** Added RTL `cleanup()` in `src/test/setup.ts` so tests do not leak DOM between cases (your local “2 failures” were pollution, not logic bugs).
+| 5 Performance | 9 | No unnecessary work. |
+| 6 Composition | 8 | Appropriate single component. |
+| 7 Readability | 7 | Large pasted spec comments should be removed in real PRs. |
+| 8 Edge cases | 9 | Empty array and `backordered: false` handled. |
+| 9 Accessibility | 7 | `ul`/`li` semantics good; no live region for empty (not required here). |
+| 10 Testability / types | 9 | Types exported; test ids match contract. |
 
 ## Running weaknesses
 
-1. **Run full suite before submit** — isolated passes can hide cleanup issues (now fixed in setup).
-2. **Read element type in spec** — status as `<span>` for inline badges (you used `<p>`; works, but match design system docs when given).
+1. **Don’t paste requirements into source** — keep implementation files clean.
+2. **Strict boolean props** — prefer `flag === true` over `flag &&` for API-driven booleans.
+3. **Read element type in spec** — (from 001) match design-system elements when specified.
 
 ## Advancement
 
-- **001 cleared** (87 ≥ 60, tests green). **002 unlocked** when you say you are ready.
+- **002 complete** (85). **003** when you say **ready** or **next**.
 
 ## Notes
 
