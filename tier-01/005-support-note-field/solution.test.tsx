@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { SupportNoteField } from './solution'
 
@@ -36,15 +37,23 @@ describe('SupportNoteField', () => {
     const user = userEvent.setup()
     const onChange = vi.fn()
 
-    render(
-      <SupportNoteField
-        id="note"
-        label="Note"
-        value=""
-        maxLength={50}
-        onChange={onChange}
-      />,
-    )
+    function Harness() {
+      const [value, setValue] = useState('')
+      return (
+        <SupportNoteField
+          id="note"
+          label="Note"
+          value={value}
+          maxLength={50}
+          onChange={(next) => {
+            onChange(next)
+            setValue(next)
+          }}
+        />
+      )
+    }
+
+    render(<Harness />)
 
     const field = screen.getByLabelText('Note')
     await user.type(field, 'abc')
@@ -52,6 +61,7 @@ describe('SupportNoteField', () => {
     expect(onChange).toHaveBeenCalled()
     const lastCall = onChange.mock.calls[onChange.mock.calls.length - 1][0]
     expect(lastCall).toBe('abc')
+    expect(field).toHaveValue('abc')
   })
 
   it('passes maxLength to the textarea', () => {

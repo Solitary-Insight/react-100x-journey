@@ -12,7 +12,7 @@
 | 002 | Order line items list | 1 | 8 | 85 | completed | 2026-09-28 |
 | 003 | Fulfillment status banner | 1 | 11 | 92 | completed | 2026-09-28 |
 | 004 | Cart quantity stepper | 1 | 14 | 88 | completed | 2026-09-28 |
-| 005 | Support note field | 1 | 17 | — | in_progress | 2026-09-28 |
+| 005 | Support note field | 1 | 17 | 81 | completed | 2026-09-28 |
 
 ## Rubric history
 
@@ -24,37 +24,34 @@
 | 002 | 10 | 8 | 9 | 9 | 9 | 8 | 7 | 9 | 7 | 9 | **85** |
 | 003 | 10 | 9 | 9 | 9 | 9 | 9 | 9 | 10 | 9 | 9 | **92** |
 | 004 | 10 | 7 | 10 | 9 | 9 | 8 | 7 | 9 | 10 | 9 | **88** |
+| 005 | 9 | 7 | 10 | 9 | 7 | 8 | 7 | 8 | 7 | 8 | **81** |
 
-### Problem 004 — notes
+### Problem 005 — notes
 
 | # | Score | Note |
 |---|-------|------|
-| 1 Correctness | 10 | 5/5 tests pass; controlled pattern correct. |
-| 2 Idiomatic React | 7 | Unneeded `import React`; import order / formatting. |
-| 3 State design | 10 | No local quantity state — textbook controlled widget. |
+| 1 Correctness | 9 | Markup/contract met; `slice` + `console.log` are unnecessary/wrong for prod. |
+| 2 Idiomatic React | 7 | Extra React import; handler noise. |
+| 3 State design | 10 | Value controlled from props only. |
 | 4 Effects | 9 | None required. |
-| 5 Performance | 9 | Fine for scope. |
-| 6 Composition | 8 | Appropriate single widget. |
-| 7 Readability | 7 | Dense one-line JSX; empty comments. |
-| 8 Edge cases | 9 | `disabled` covers bounds; optional handler guard omitted. |
-| 9 Accessibility | 10 | Correct `aria-label`s and `type="button"`. |
-| 10 Testability / types | 9 | Contract met. |
+| 5 Performance | 7 | `console.log` on every keystroke. |
+| 6 Composition | 8 | Single field component — appropriate. |
+| 7 Readability | 7 | Inline handler with debug noise. |
+| 8 Edge cases | 8 | `maxLength` attr present; redundant slice. |
+| 9 Accessibility | 7 | Redundant `aria-label` with visible label. |
+| 10 Testability / types | 8 | Works when parent updates state (see harness in test). |
+
+**Infra:** Typing test now uses a state harness — required for realistic controlled-input tests.
 
 ## Running weaknesses
 
-1. **Imports & formatting** — drop default React import; use formatter (004).
-2. **Strict boolean props** — (002) `=== true` for API flags when specified.
-3. **Keep solution files clean** — no pasted specs or empty comment blocks.
-
-## Strengths (building)
-
-- Controlled components without local duplicate state (004).
-- Config maps for variants (003).
+1. **Remove debug code** before submit (`console.log` in 005).
+2. **Controlled input loop** — parent must update `value` when `onChange` fires.
+3. **Imports & formatting** — no default React import; run formatter (004–005).
 
 ## Advancement
 
-- **005 in progress** — controlled textarea + char counter.
-- Skip rule: need **two consecutive 90+** — 003 was 92, 004 was 88 (not eligible).
+- **005 complete** (81). **006** when you say **next** (lifting state — ~level 20).
 
 ## Notes
 
