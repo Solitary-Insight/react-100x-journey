@@ -3,7 +3,7 @@
 Graded React practice for Abdul Haseeb — 100 industry-style problems, TypeScript, Vitest + React Testing Library.
 
 - **Progress:** see [PROGRESS.md](./PROGRESS.md)
-- **Current problem:** `tier-01/008-gift-message-toggle/`
+- **Current problem:** `tier-01/009-stock-alert-list/`
 - **Run tests:** `npm test` (from this directory)
 - **React version:** see `package.json` (currently React 19.x)
 
