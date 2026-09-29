@@ -14,6 +14,7 @@
 | 004 | Cart quantity stepper | 1 | 14 | 88 | completed | 2026-09-28 |
 | 005 | Support note field | 1 | 17 | 81 | completed | 2026-09-28 |
 | 006 | Ticket note panel | 1 | 20 | 62 | completed | 2026-09-29 |
+| 007 | Shipping method summary | 1 | 23 | 72 | completed | 2026-09-29 |
 
 ## Rubric history
 
@@ -27,6 +28,22 @@
 | 004 | 10 | 7 | 10 | 9 | 9 | 8 | 7 | 9 | 10 | 9 | **88** |
 | 005 | 9 | 7 | 10 | 9 | 7 | 8 | 7 | 8 | 7 | 8 | **81** |
 | 006 | 5 | 6 | 8 | 9 | 8 | 4 | 6 | 4 | 5 | 7 | **62** |
+| 007 | 9 | 6 | 8 | 9 | 7 | 8 | 6 | 5 | 7 | 7 | **72** |
+
+### Problem 007 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | All tests pass; fee, ETA, and totals derive correctly from `method`. |
+| 2 Idiomatic React | 6 | `useMemo` for trivial lookups; `onClick` on label vs `onChange`; `==`; default `React` import. |
+| 3 State design | 8 | Single `method` state — good; derived values not duplicated in `useState`. |
+| 4 Effects | 9 | None required. |
+| 5 Performance | 7 | Extra memoization without benefit at this scale. |
+| 6 Composition | 8 | Maps + shared constants are reasonable for three options. |
+| 7 Readability | 6 | `Object.entries` loop is fine; loose typing on `setMethod(key)`. |
+| 8 Edge cases | 5 | `total` `useMemo` omits `subtotalCents` from deps — stale total if prop changes. |
+| 9 Accessibility | 7 | Labels wrap inputs; redundant `role="radio"` on native radios. |
+| 10 Testability / types | 7 | Radio `value` is display text, not `standard` / `express` / `pickup` per spec. |
 
 ### Problem 006 — notes
 
@@ -45,14 +62,15 @@
 
 ## Running weaknesses
 
-1. **Match the stated DOM contract** — element type, classes, and `htmlFor` (005–006).
-2. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field.
-3. **Use `maxLength` on the control** — do not block every change once length hits the cap.
-4. **Imports** — import `useState` only; no default `React` import.
+1. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
+2. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
+3. **Derive during render** — plain `const` is enough here; if you `useMemo`, list every dependency (007 `subtotalCents`).
+4. **Imports** — `useState` / `useMemo` only; no default `React` import.
 
 ## Advancement
 
-- **006 cleared at 62** (advance band 60–84). Say **next** for 007, or fix `solution.tsx` and say **done** for a re-grade.
+- **007 scored 72** — advance to **008** when you say **next** (~level 26, conditional UI).
+- Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
 

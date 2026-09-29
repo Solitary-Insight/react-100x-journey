@@ -29,7 +29,7 @@ export function ShippingMethodSummary({ subtotalCents }: ShippingMethodSummaryPr
 
   const [method, setMethod] = useState<ShippingMethod>('standard')
 
-  const obj = { standerd: "Standerd", express: "Express", pickup: "Pickup" }
+  const obj = { standard: "Standard", express: "Express", pickup: "Store pickup" }
   const shippingFee = useMemo(() => SHIPPING_CENTS[method], [method])
   const shippingEta = useMemo(() => SHIPPING_ETA[method], [method])
   const total = useMemo(() => shippingFee + subtotalCents, [shippingFee])
@@ -38,9 +38,9 @@ export function ShippingMethodSummary({ subtotalCents }: ShippingMethodSummaryPr
     <fieldset className="shipping-method-summary__fieldset">
       <legend className="shipping-method-summary__legend">Shipping method</legend>
       {Object.entries(obj).map(([key, val], index) => {
-        return < label onClick={() => setMethod(key)} className="shipping-method-summary__option">
-          <input checked={method == key} type='radio' value={val} />
-          Standerd
+        return < label  onClick={() => setMethod(key)} className="shipping-method-summary__option">
+          <input role='radio' name='shipping-method'  checked={method == key} type='radio' value={val} />
+          {val}
         </label>
       })
 
@@ -49,7 +49,7 @@ export function ShippingMethodSummary({ subtotalCents }: ShippingMethodSummaryPr
 
 
       <p className="shipping-method-summary__fee" data-testid="shipping-fee">Shipping: ${formatDollars(shippingFee)}</p>
-      <p className="shipping-method-summary__eta" data-testid="shipping-eta"></p>
+      <p className="shipping-method-summary__eta" data-testid="shipping-eta">{shippingEta}</p>
       <p className="shipping-method-summary__total" data-testid="order-total">Total: ${formatDollars(total)}</p>
     </fieldset>
   </section >
