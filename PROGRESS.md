@@ -15,6 +15,7 @@
 | 005 | Support note field | 1 | 17 | 81 | completed | 2026-09-28 |
 | 006 | Ticket note panel | 1 | 20 | 62 | completed | 2026-09-29 |
 | 007 | Shipping method summary | 1 | 23 | 72 | completed | 2026-09-29 |
+| 008 | Gift message toggle | 1 | 26 | 91 | completed | 2026-09-29 |
 
 ## Rubric history
 
@@ -29,6 +30,22 @@
 | 005 | 9 | 7 | 10 | 9 | 7 | 8 | 7 | 8 | 7 | 8 | **81** |
 | 006 | 5 | 6 | 8 | 9 | 8 | 4 | 6 | 4 | 5 | 7 | **62** |
 | 007 | 9 | 6 | 8 | 9 | 7 | 8 | 6 | 5 | 7 | 7 | **72** |
+| 008 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 9 | 7 | **91** |
+
+### Problem 008 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Spec markup, conditional mount, reset-on-uncheck; 4/4 tests. |
+| 2 Idiomatic React | 8 | Controlled checkbox + `handleToggle`; drop default `React` import. |
+| 3 State design | 10 | `enabled` + `message`; clear coupled to toggle off — no leaked draft. |
+| 4 Effects | 10 | No `useEffect` for visibility. |
+| 5 Performance | 9 | Appropriate for scope. |
+| 6 Composition | 9 | Single section component fits the problem. |
+| 7 Readability | 9 | `handleToggle` names intent clearly. |
+| 8 Edge cases | 10 | Re-open after uncheck shows empty field. |
+| 9 Accessibility | 9 | Toggle label wraps input; gift field uses `htmlFor` / `id`. |
+| 10 Testability / types | 7 | Exported types; `GiftMessageSectionProps` could stay grouped above component (style). |
 
 ### Problem 007 — notes
 
@@ -62,14 +79,14 @@
 
 ## Running weaknesses
 
-1. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
-2. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
-3. **Derive during render** — plain `const` is enough here; if you `useMemo`, list every dependency (007 `subtotalCents`).
-4. **Imports** — `useState` / `useMemo` only; no default `React` import.
+1. **Imports** — `useState` only; no default `React` import (005–008).
+2. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
+3. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
+4. **Derive during render** — plain `const` is enough; if you `useMemo`, list every dependency (007).
 
 ## Advancement
 
-- **007 scored 72** — advance to **008** when you say **next** (~level 26, conditional UI).
+- **008 scored 91** — say **next** for **009** (~level 29, lists + keys / small data UI).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
