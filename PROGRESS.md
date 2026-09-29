@@ -18,6 +18,8 @@
 | 008 | Gift message toggle | 1 | 26 | 91 | completed | 2026-09-29 |
 | 009 | Stock alert list | 1 | 29 | 92 | completed | 2026-09-29 |
 | 010 | Order summary split | 1 | 32 | 90 | completed | 2026-09-29 |
+| 011 | Support ticket shell | 1 | 35 | 85 | completed | 2026-09-29 |
+| 012 | Notify customer button | 1 | 38 | — | in progress | — |
 
 ## Rubric history
 
@@ -35,6 +37,22 @@
 | 008 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 9 | 7 | **91** |
 | 009 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 8 | 9 | **92** |
 | 010 | 10 | 7 | 10 | 10 | 9 | 10 | 7 | 10 | 8 | 9 | **90** |
+| 011 | 8 | 7 | 10 | 10 | 9 | 8 | 7 | 10 | 7 | 9 | **85** |
+
+### Problem 011 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 8 | 3/3 tests pass; `ticket-body` should be sibling of `header`, not inside it. |
+| 2 Idiomatic React | 7 | Correct `actions !== undefined` guard; remove unused default `React` import; use `!==`. |
+| 3 State design | 10 | Props-only slots — no local state. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 9 | Fine. |
+| 6 Composition | 8 | Children + optional actions work; DOM structure drifts from spec. |
+| 7 Readability | 7 | Tight formatting; structure would be clearer with body outside header. |
+| 8 Edge cases | 10 | Optional footer omitted when `actions` undefined. |
+| 9 Accessibility | 7 | `header` should wrap title only; body outside landmark header. |
+| 10 Testability / types | 9 | `ReactNode` typing and exports correct. |
 
 ### Problem 010 — notes
 
@@ -113,14 +131,15 @@
 
 ## Running weaknesses
 
-1. **Imports** — named hooks only when needed; no default `React` import (005–010).
-2. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
-3. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
-4. **Derive during render** — plain `const` is enough; if you `useMemo`, list every dependency (007).
+1. **Imports** — `import type { ReactNode }` or hooks only; no default `React` import (005–011).
+2. **Layout structure** — match spec nesting (`header` vs body siblings in 011).
+3. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
+4. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
+5. **Derive during render** — plain `const` is enough; if you `useMemo`, list every dependency (007).
 
 ## Advancement
 
-- **010 scored 90** — say **next** for **011** (~level 35, `children` / layout slots).
+- **Current:** Problem **012** — `tier-01/012-notify-customer-button/` (callback props + `disabled`).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
