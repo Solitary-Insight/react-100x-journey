@@ -17,6 +17,7 @@
 | 007 | Shipping method summary | 1 | 23 | 72 | completed | 2026-09-29 |
 | 008 | Gift message toggle | 1 | 26 | 91 | completed | 2026-09-29 |
 | 009 | Stock alert list | 1 | 29 | 92 | completed | 2026-09-29 |
+| 010 | Order summary split | 1 | 32 | 90 | completed | 2026-09-29 |
 
 ## Rubric history
 
@@ -33,6 +34,22 @@
 | 007 | 9 | 6 | 8 | 9 | 7 | 8 | 6 | 5 | 7 | 7 | **72** |
 | 008 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 9 | 7 | **91** |
 | 009 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 8 | 9 | **92** |
+| 010 | 10 | 7 | 10 | 10 | 9 | 10 | 7 | 10 | 8 | 9 | **90** |
+
+### Problem 010 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Header, totals, card composition; money and grand total; 4/4 tests. |
+| 2 Idiomatic React | 7 | Solid split; drop unused `React` import; rename `formate` → `formatDollars`. |
+| 3 State design | 10 | Props-only; total derived in totals component. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 9 | Fine for scope. |
+| 6 Composition | 10 | Card drills props into focused children — goal of the problem. |
+| 7 Readability | 7 | `formatedSt` / `formate` typos; destructure card props like header. |
+| 8 Edge cases | 10 | Zero cents formats correctly in tests. |
+| 9 Accessibility | 8 | Semantic `header` / `footer` inside `article`. |
+| 10 Testability / types | 9 | All exports present for isolated tests. |
 
 ### Problem 009 — notes
 
@@ -96,14 +113,14 @@
 
 ## Running weaknesses
 
-1. **Imports** — named hooks only; no default `React` import (005–009).
+1. **Imports** — named hooks only when needed; no default `React` import (005–010).
 2. **Match the stated DOM contract** — element type, classes, `htmlFor`, radio `value`s (005–007).
 3. **Keep parent actions on the parent** — Clear belongs on `TicketNotePanel`, not inside the field (006).
 4. **Derive during render** — plain `const` is enough; if you `useMemo`, list every dependency (007).
 
 ## Advancement
 
-- **009 scored 92** — say **next** for **010** (~level 32, props drilling / small component split).
+- **010 scored 90** — say **next** for **011** (~level 35, `children` / layout slots).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
