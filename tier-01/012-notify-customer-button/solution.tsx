@@ -4,6 +4,22 @@ export type NotifyCustomerButtonProps = {
   disabled?: boolean
 }
 
-export function NotifyCustomerButton(_props: NotifyCustomerButtonProps) {
-  return null
+export function NotifyCustomerButton({
+  customerName,
+  onNotify,
+  disabled = false,
+}: NotifyCustomerButtonProps) {
+  return (
+    <button
+      type="button"
+      className="notify-customer-button"
+      data-testid="notify-customer-button"
+      disabled={disabled}
+      onClick={() => {
+        if (!disabled) onNotify()
+      }}
+    >
+      Notify {customerName}
+    </button>
+  )
 }

@@ -19,7 +19,7 @@
 | 009 | Stock alert list | 1 | 29 | 92 | completed | 2026-09-29 |
 | 010 | Order summary split | 1 | 32 | 90 | completed | 2026-09-29 |
 | 011 | Support ticket shell | 1 | 35 | 85 | completed | 2026-09-29 |
-| 012 | Notify customer button | 1 | 38 | — | in progress | — |
+| 012 | Notify customer button | 1 | 38 | 96 | completed | 2026-10-05 |
 
 ## Rubric history
 
@@ -38,6 +38,22 @@
 | 009 | 10 | 8 | 10 | 10 | 9 | 9 | 9 | 10 | 8 | 9 | **92** |
 | 010 | 10 | 7 | 10 | 10 | 9 | 10 | 7 | 10 | 8 | 9 | **90** |
 | 011 | 8 | 7 | 10 | 10 | 9 | 8 | 7 | 10 | 7 | 9 | **85** |
+| 012 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 8 | **96** |
+
+### Problem 012 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Label, `disabled`, and `onNotify` behavior; 3/3 tests. |
+| 2 Idiomatic React | 9 | Clean callback button; `if (!disabled)` in handler is redundant with `disabled` attr. |
+| 3 State design | 10 | Parent owns effects; no local state. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Trivial. |
+| 6 Composition | 10 | Single-purpose presentational control. |
+| 7 Readability | 10 | Clear destructuring and defaults. |
+| 8 Edge cases | 10 | Disabled clicks do not fire handler. |
+| 9 Accessibility | 9 | `type="button"`; could add explicit accessible name later if label changes. |
+| 10 Testability / types | 8 | Exported types; easy to mock `onNotify`. |
 
 ### Problem 011 — notes
 
@@ -139,7 +155,7 @@
 
 ## Advancement
 
-- **Current:** Problem **012** — `tier-01/012-notify-customer-button/` (callback props + `disabled`).
+- **012 scored 96** — say **next** for **013** (~level 41, form submit / controlled input bundle).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
