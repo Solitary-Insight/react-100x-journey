@@ -6,7 +6,24 @@ export type PrintStatus =
 export type LabelPrintStatusProps = {
   status: PrintStatus
 }
+export function LabelPrintStatus({ status }: LabelPrintStatusProps) {
 
-export function LabelPrintStatus(_props: LabelPrintStatusProps) {
-  return null
+
+  
+  switch (status.kind) {
+    case 'idle':
+      return null
+    case 'error':
+      return (
+        <p role="alert" className="label-print-status label-print-status--error" data-testid="label-print-status-error">
+          {status.message}
+        </p>
+      )
+    case 'success':
+      return (
+        <p role="status" className="label-print-status label-print-status--success" data-testid="label-print-status-success">
+          {status.message}
+        </p>
+      )
+  }
 }

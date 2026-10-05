@@ -25,7 +25,8 @@
 | 015 | Carrier label form | 1 | 47 | 96 | completed | 2026-10-05 |
 | 016 | Carrier label busy form | 1 | 50 | 89 | completed | 2026-10-05 |
 | 017 | Label print error | 1 | 53 | 100 | completed | 2026-10-06 |
-| 018 | Label print status | 1 | 56 | — | in progress | — |
+| 018 | Label print status | 1 | 56 | 99 | completed | 2026-10-06 |
+| 019 | Label print workbench | 1 | 59 | — | in progress | — |
 
 ## Rubric history
 
@@ -50,6 +51,22 @@
 | 015 | 10 | 9 | 10 | 10 | 10 | 10 | 9 | 10 | 9 | 8 | **96** |
 | 016 | 9 | 8 | 8 | 10 | 9 | 9 | 8 | 9 | 8 | 9 | **89** |
 | 017 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **100** |
+| 018 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | 10 | 10 | **99** |
+
+### Problem 018 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | All variants + roles; 3/3 tests. |
+| 2 Idiomatic React | 10 | `switch` on discriminant — clear. |
+| 3 State design | 10 | Props-only. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Trivial. |
+| 6 Composition | 10 | Focused status component. |
+| 7 Readability | 9 | Extra blank lines only nit. |
+| 8 Edge cases | 10 | Idle returns null. |
+| 9 Accessibility | 10 | `alert` vs `status` roles correct. |
+| 10 Testability / types | 10 | Union exported and exhaustive switch. |
 
 ### Problem 017 — notes
 
@@ -241,7 +258,7 @@
 
 ## Advancement
 
-- **Current:** Problem **018** — `tier-01/018-label-print-status/` (discriminated `PrintStatus`).
+- **Current:** Problem **019** — `tier-01/019-label-print-workbench/` (compose status + busy form).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
