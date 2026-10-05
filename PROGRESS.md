@@ -21,7 +21,8 @@
 | 011 | Support ticket shell | 1 | 35 | 85 | completed | 2026-09-29 |
 | 012 | Notify customer button | 1 | 38 | 96 | completed | 2026-10-05 |
 | 013 | Tracking note form | 1 | 41 | 91 | completed | 2026-10-05 |
-| 014 | Carrier select field | 1 | 44 | — | in progress | — |
+| 014 | Carrier select field | 1 | 44 | 98 | completed | 2026-10-05 |
+| 015 | Carrier label form | 1 | 47 | — | in progress | — |
 
 ## Rubric history
 
@@ -42,6 +43,22 @@
 | 011 | 8 | 7 | 10 | 10 | 9 | 8 | 7 | 10 | 7 | 9 | **85** |
 | 012 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 8 | **96** |
 | 013 | 9 | 10 | 10 | 10 | 9 | 9 | 8 | 10 | 9 | 7 | **91** |
+| 014 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | **98** |
+
+### Problem 014 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Full DOM contract; options, controlled value; 3/3 tests. |
+| 2 Idiomatic React | 9 | Controlled select; `as CarrierCode` acceptable here. |
+| 3 State design | 10 | Props-only — parent owns carrier. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Trivial. |
+| 6 Composition | 10 | Focused field component. |
+| 7 Readability | 10 | Clear structure. |
+| 8 Edge cases | 10 | All three codes selectable. |
+| 9 Accessibility | 10 | Label/`htmlFor`/`id` correct. |
+| 10 Testability / types | 9 | Exported union + props. |
 
 ### Problem 013 — notes
 
@@ -173,7 +190,7 @@
 
 ## Advancement
 
-- **Current:** Problem **014** — `tier-01/014-carrier-select-field/` (controlled `<select>`).
+- **Current:** Problem **015** — `tier-01/015-carrier-label-form/` (local carrier state + create callback).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
