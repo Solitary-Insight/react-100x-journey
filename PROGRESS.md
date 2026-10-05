@@ -20,6 +20,8 @@
 | 010 | Order summary split | 1 | 32 | 90 | completed | 2026-09-29 |
 | 011 | Support ticket shell | 1 | 35 | 85 | completed | 2026-09-29 |
 | 012 | Notify customer button | 1 | 38 | 96 | completed | 2026-10-05 |
+| 013 | Tracking note form | 1 | 41 | 91 | completed | 2026-10-05 |
+| 014 | Carrier select field | 1 | 44 | — | in progress | — |
 
 ## Rubric history
 
@@ -39,6 +41,22 @@
 | 010 | 10 | 7 | 10 | 10 | 9 | 10 | 7 | 10 | 8 | 9 | **90** |
 | 011 | 8 | 7 | 10 | 10 | 9 | 8 | 7 | 10 | 7 | 9 | **85** |
 | 012 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 8 | **96** |
+| 013 | 9 | 10 | 10 | 10 | 9 | 9 | 8 | 10 | 9 | 7 | **91** |
+
+### Problem 013 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Submit/trim/clear/Enter work; missing `tracking-note-form` / input / submit `className`s from spec. |
+| 2 Idiomatic React | 10 | `FormEvent`, `preventDefault`, controlled input — textbook. |
+| 3 State design | 10 | Local draft + parent callback on commit. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 9 | Fine. |
+| 6 Composition | 9 | Single form component fits scope. |
+| 7 Readability | 8 | Clear handler; tighten quote/formatting on attributes. |
+| 8 Edge cases | 10 | Whitespace-only blocked; trim on submit. |
+| 9 Accessibility | 9 | Label/`htmlFor`/submit button. |
+| 10 Testability / types | 7 | Tests pass; DOM classes part of contract for design system. |
 
 ### Problem 012 — notes
 
@@ -155,7 +173,7 @@
 
 ## Advancement
 
-- **012 scored 96** — say **next** for **013** (~level 41, form submit / controlled input bundle).
+- **Current:** Problem **014** — `tier-01/014-carrier-select-field/` (controlled `<select>`).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
