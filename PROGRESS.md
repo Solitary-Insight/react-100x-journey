@@ -27,7 +27,8 @@
 | 017 | Label print error | 1 | 53 | 100 | completed | 2026-10-06 |
 | 018 | Label print status | 1 | 56 | 99 | completed | 2026-10-06 |
 | 019 | Label print workbench | 1 | 59 | 91 | completed | 2026-10-06 |
-| 020 | Warehouse scan input | 1 | 62 | — | in progress | — |
+| 020 | Warehouse scan input | 1 | 62 | 97 | completed | 2026-10-06 |
+| 021 | SKU lookup field | 1 | 65 | — | in progress | — |
 
 ## Rubric history
 
@@ -54,6 +55,22 @@
 | 017 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **100** |
 | 018 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | 10 | 10 | **99** |
 | 019 | 9 | 8 | 10 | 10 | 9 | 9 | 8 | 10 | 8 | 10 | **91** |
+| 020 | 9 | 9 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **97** |
+
+### Problem 020 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Focus, submit, trim; add `className="warehouse-scan"` on form per spec. |
+| 2 Idiomatic React | 9 | Mount effect + ref focus correct; imports after type export is odd. |
+| 3 State design | 10 | Local draft; callback on commit. |
+| 4 Effects | 9 | Single mount focus effect — appropriate. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 10 | Focused scan form. |
+| 7 Readability | 9 | Minor formatting on input line. |
+| 8 Edge cases | 10 | Whitespace-only blocked. |
+| 9 Accessibility | 10 | Label/`htmlFor`/focus for scanner UX. |
+| 10 Testability / types | 10 | 3/3 tests. |
 
 ### Problem 019 — notes
 
@@ -275,7 +292,7 @@
 
 ## Advancement
 
-- **Current:** Problem **020** — `tier-01/020-warehouse-scan-input/` (`useRef` + mount focus).
+- **Current:** Problem **021** — `tier-01/021-sku-lookup-field/` (`useId` + controlled input).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
