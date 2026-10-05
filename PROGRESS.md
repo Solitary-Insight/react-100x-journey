@@ -23,7 +23,8 @@
 | 013 | Tracking note form | 1 | 41 | 91 | completed | 2026-10-05 |
 | 014 | Carrier select field | 1 | 44 | 98 | completed | 2026-10-05 |
 | 015 | Carrier label form | 1 | 47 | 96 | completed | 2026-10-05 |
-| 016 | Carrier label busy form | 1 | 50 | — | in progress | — |
+| 016 | Carrier label busy form | 1 | 50 | 89 | completed | 2026-10-05 |
+| 017 | Label print error | 1 | 53 | — | in progress | — |
 
 ## Rubric history
 
@@ -46,6 +47,22 @@
 | 013 | 9 | 10 | 10 | 10 | 9 | 9 | 8 | 10 | 9 | 7 | **91** |
 | 014 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | **98** |
 | 015 | 10 | 9 | 10 | 10 | 10 | 10 | 9 | 10 | 9 | 8 | **96** |
+| 016 | 9 | 8 | 8 | 10 | 9 | 9 | 8 | 9 | 8 | 9 | **89** |
+
+### Problem 016 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Disabled wiring works; initial carrier should be `'ups'`, not `''`. |
+| 2 Idiomatic React | 8 | `disabled={isPrinting}` correct; fix `useState<CarrierCode>('ups')`. |
+| 3 State design | 8 | `isPrinting` from props — good; empty string carrier is invalid. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 9 | Fine. |
+| 6 Composition | 9 | Matches 015 shape + busy prop. |
+| 7 Readability | 8 | Label missing `carrier-label-busy-form__label`; extra spaces in label text. |
+| 8 Edge cases | 9 | Could call `onCreateLabel('')` if create clicked before select (untested). |
+| 9 Accessibility | 8 | `disabled` while printing; label/`htmlFor` present. |
+| 10 Testability / types | 9 | 4/4 tests pass. |
 
 ### Problem 015 — notes
 
@@ -207,7 +224,7 @@
 
 ## Advancement
 
-- **Current:** Problem **016** — `tier-01/016-carrier-label-busy/` (`isPrinting` disables controls).
+- **Current:** Problem **017** — `tier-01/017-label-print-error/` (`null` vs error message).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
