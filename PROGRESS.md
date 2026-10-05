@@ -22,7 +22,8 @@
 | 012 | Notify customer button | 1 | 38 | 96 | completed | 2026-10-05 |
 | 013 | Tracking note form | 1 | 41 | 91 | completed | 2026-10-05 |
 | 014 | Carrier select field | 1 | 44 | 98 | completed | 2026-10-05 |
-| 015 | Carrier label form | 1 | 47 | — | in progress | — |
+| 015 | Carrier label form | 1 | 47 | 96 | completed | 2026-10-05 |
+| 016 | Carrier label busy form | 1 | 50 | — | in progress | — |
 
 ## Rubric history
 
@@ -44,6 +45,22 @@
 | 012 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 8 | **96** |
 | 013 | 9 | 10 | 10 | 10 | 9 | 9 | 8 | 10 | 9 | 7 | **91** |
 | 014 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | **98** |
+| 015 | 10 | 9 | 10 | 10 | 10 | 10 | 9 | 10 | 9 | 8 | **96** |
+
+### Problem 015 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | State, select, create callback; 3/3 tests. |
+| 2 Idiomatic React | 9 | Local draft + action callback; `type="button"` correct. |
+| 3 State design | 10 | Carrier local until create — matches spec. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 10 | Clear section form. |
+| 7 Readability | 9 | Minor option indent; add `carrier-label-form__select` / `__create` classes. |
+| 8 Edge cases | 10 | Create uses latest selection after change. |
+| 9 Accessibility | 9 | Label + select; disabled states come in 016. |
+| 10 Testability / types | 8 | Exports complete. |
 
 ### Problem 014 — notes
 
@@ -190,7 +207,7 @@
 
 ## Advancement
 
-- **Current:** Problem **015** — `tier-01/015-carrier-label-form/` (local carrier state + create callback).
+- **Current:** Problem **016** — `tier-01/016-carrier-label-busy/` (`isPrinting` disables controls).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
