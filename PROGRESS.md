@@ -26,7 +26,8 @@
 | 016 | Carrier label busy form | 1 | 50 | 89 | completed | 2026-10-05 |
 | 017 | Label print error | 1 | 53 | 100 | completed | 2026-10-06 |
 | 018 | Label print status | 1 | 56 | 99 | completed | 2026-10-06 |
-| 019 | Label print workbench | 1 | 59 | — | in progress | — |
+| 019 | Label print workbench | 1 | 59 | 91 | completed | 2026-10-06 |
+| 020 | Warehouse scan input | 1 | 62 | — | in progress | — |
 
 ## Rubric history
 
@@ -52,6 +53,22 @@
 | 016 | 9 | 8 | 8 | 10 | 9 | 9 | 8 | 9 | 8 | 9 | **89** |
 | 017 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **100** |
 | 018 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | 10 | 10 | **99** |
+| 019 | 9 | 8 | 10 | 10 | 9 | 9 | 8 | 10 | 8 | 10 | **91** |
+
+### Problem 019 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Status + form + disabled work; `id`/`htmlFor` should be `workbench-carrier`. |
+| 2 Idiomatic React | 8 | `renderStatus` helper OK; type the parameter (`PrintStatus`). |
+| 3 State design | 10 | `isPrinting` from props; local carrier state. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 9 | Fine. |
+| 6 Composition | 9 | Workbench layout correct; reused 016 class names unnecessarily. |
+| 7 Readability | 8 | Semicolons/extra blanks; label spacing. |
+| 8 Edge cases | 10 | Printing disables; DHL create path covered. |
+| 9 Accessibility | 8 | Fix label/`id` pairing per spec. |
+| 10 Testability / types | 10 | 3/3 tests. |
 
 ### Problem 018 — notes
 
@@ -258,7 +275,7 @@
 
 ## Advancement
 
-- **Current:** Problem **019** — `tier-01/019-label-print-workbench/` (compose status + busy form).
+- **Current:** Problem **020** — `tier-01/020-warehouse-scan-input/` (`useRef` + mount focus).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
