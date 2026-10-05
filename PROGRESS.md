@@ -24,7 +24,8 @@
 | 014 | Carrier select field | 1 | 44 | 98 | completed | 2026-10-05 |
 | 015 | Carrier label form | 1 | 47 | 96 | completed | 2026-10-05 |
 | 016 | Carrier label busy form | 1 | 50 | 89 | completed | 2026-10-05 |
-| 017 | Label print error | 1 | 53 | — | in progress | — |
+| 017 | Label print error | 1 | 53 | 100 | completed | 2026-10-06 |
+| 018 | Label print status | 1 | 56 | — | in progress | — |
 
 ## Rubric history
 
@@ -48,6 +49,22 @@
 | 014 | 10 | 9 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | **98** |
 | 015 | 10 | 9 | 10 | 10 | 10 | 10 | 9 | 10 | 9 | 8 | **96** |
 | 016 | 9 | 8 | 8 | 10 | 9 | 9 | 8 | 9 | 8 | 9 | **89** |
+| 017 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **100** |
+
+### Problem 017 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Strict `null` check; alert markup; 2/2 tests. |
+| 2 Idiomatic React | 10 | Early return `null` — canonical. |
+| 3 State design | 10 | Props-only feedback. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Trivial. |
+| 6 Composition | 10 | Single-purpose error line. |
+| 7 Readability | 10 | Minimal and clear. |
+| 8 Edge cases | 10 | No phantom DOM when idle. |
+| 9 Accessibility | 10 | `role="alert"` for errors. |
+| 10 Testability / types | 10 | `string \| null` exported. |
 
 ### Problem 016 — notes
 
@@ -224,7 +241,7 @@
 
 ## Advancement
 
-- **Current:** Problem **017** — `tier-01/017-label-print-error/` (`null` vs error message).
+- **Current:** Problem **018** — `tier-01/018-label-print-status/` (discriminated `PrintStatus`).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
