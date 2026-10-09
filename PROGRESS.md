@@ -28,7 +28,8 @@
 | 018 | Label print status | 1 | 56 | 99 | completed | 2026-10-06 |
 | 019 | Label print workbench | 1 | 59 | 91 | completed | 2026-10-06 |
 | 020 | Warehouse scan input | 1 | 62 | 97 | completed | 2026-10-06 |
-| 021 | SKU lookup field | 1 | 65 | — | in progress | — |
+| 021 | SKU lookup field | 1 | 65 | 95 | completed | 2026-10-10 |
+| 022 | Department SKU search | 1 | 68 | — | in progress | — |
 
 ## Rubric history
 
@@ -56,6 +57,22 @@
 | 018 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | 10 | 10 | **99** |
 | 019 | 9 | 8 | 10 | 10 | 9 | 9 | 8 | 10 | 8 | 10 | **91** |
 | 020 | 9 | 9 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **97** |
+| 021 | 10 | 8 | 10 | 10 | 10 | 10 | 7 | 10 | 10 | 10 | **95** |
+
+### Problem 021 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | `useId`, controlled input, markup/test ids — 3/3 tests. |
+| 2 Idiomatic React | 8 | Correct hooks; odd indentation on the component export. |
+| 3 State design | 10 | Fully controlled from props. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 10 | Focused field component. |
+| 7 Readability | 7 | Extra blank lines; export block indented like nested code. |
+| 8 Edge cases | 10 | Multi-instance ids covered by tests. |
+| 9 Accessibility | 10 | Label/`htmlFor`/`useId` pairing. |
+| 10 Testability / types | 10 | Exported props match spec. |
 
 ### Problem 020 — notes
 
@@ -292,7 +309,7 @@
 
 ## Advancement
 
-- **Current:** Problem **021** — `tier-01/021-sku-lookup-field/` (`useId` + controlled input).
+- **Current:** Problem **022** — `tier-01/022-department-sku-search/` (`useEffect` reset when `departmentId` changes).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
