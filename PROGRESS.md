@@ -34,7 +34,7 @@
 | 024 | Pick line search panel | 1 | 74 | 96 | completed | 2026-10-10 |
 | 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
 | 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
-| 027 | Pick wave reducer | 2 | 91 | — | in progress | — |
+| 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
 
 ## Rubric history
 
@@ -68,6 +68,22 @@
 | 024 | 10 | 9 | 10 | 10 | 10 | 9 | 8 | 10 | 10 | 10 | **96** |
 | 025 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **99** |
 | 026 | 8 | 7 | 8 | 9 | 8 | 6 | 7 | 8 | 10 | 9 | **82** |
+| 027 | 9 | 6 | 8 | 9 | 9 | 5 | 6 | 7 | 10 | 8 | **79** |
+
+### Problem 027 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | FSM + auto-complete — 5/5 tests; reducer should no-op illegal transitions. |
+| 2 Idiomatic React | 6 | Reducer nested in hook; `==`; `target_count` on action instead of closure/guard. |
+| 3 State design | 8 | Single reducer state — good; `pickUnit` should check `canPick` before dispatch. |
+| 4 Effects | 9 | `targetCount` → reset in hook is correct. |
+| 5 Performance | 9 | Fine for this scale. |
+| 6 Composition | 5 | `PickWaveView` `useEffect` reset duplicated hook logic — keep view dumb. |
+| 7 Readability | 6 | Hoisted inner `function reducer` is confusing; move module-level. |
+| 8 Edge cases | 7 | UI disables buttons; reducer still allows `pause` from `idle` if dispatched. |
+| 9 Accessibility | 10 | Provided view. |
+| 10 Testability / types | 8 | Extract reducer to test without RTL. |
 
 ### Problem 026 — notes
 
@@ -394,7 +410,7 @@
 
 ## Advancement
 
-- **Current:** Problem **027** — `tier-01/027-pick-wave-reducer/` (`useReducer` state machine). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **028** — expert track (next scaffold on request). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
