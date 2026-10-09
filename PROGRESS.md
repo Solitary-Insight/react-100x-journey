@@ -34,6 +34,7 @@
 | 024 | Pick line search panel | 1 | 74 | 96 | completed | 2026-10-10 |
 | 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
 | 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
+| 027 | Pick wave reducer | 2 | 91 | — | in progress | — |
 
 ## Rubric history
 
@@ -393,7 +394,7 @@
 
 ## Advancement
 
-- **Current:** Problem **027** — expert track (next: `useReducer` pick wave — TBD scaffold on request). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **027** — `tier-01/027-pick-wave-reducer/` (`useReducer` state machine). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
