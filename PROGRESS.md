@@ -29,7 +29,8 @@
 | 019 | Label print workbench | 1 | 59 | 91 | completed | 2026-10-06 |
 | 020 | Warehouse scan input | 1 | 62 | 97 | completed | 2026-10-06 |
 | 021 | SKU lookup field | 1 | 65 | 95 | completed | 2026-10-10 |
-| 022 | Department SKU search | 1 | 68 | — | in progress | — |
+| 022 | Department SKU search | 1 | 68 | 96 | completed | 2026-10-10 |
+| 023 | Pick line filter list | 1 | 71 | — | in progress | — |
 
 ## Rubric history
 
@@ -58,6 +59,22 @@
 | 019 | 9 | 8 | 10 | 10 | 9 | 9 | 8 | 10 | 8 | 10 | **91** |
 | 020 | 9 | 9 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **97** |
 | 021 | 10 | 8 | 10 | 10 | 10 | 10 | 7 | 10 | 10 | 10 | **95** |
+| 022 | 10 | 8 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **96** |
+
+### Problem 022 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Reset on dept change, controlled field, markup — 4/4 tests. |
+| 2 Idiomatic React | 8 | `useRef` guard pattern correct; imports after type export. |
+| 3 State design | 10 | Value owned by parent. |
+| 4 Effects | 9 | Skips first mount; add `onChange` to deps for exhaustive-deps hygiene. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 10 | Focused search field. |
+| 7 Readability | 9 | Clear effect block. |
+| 8 Edge cases | 10 | Non-empty initial value preserved on mount. |
+| 9 Accessibility | 10 | `useId` + label. |
+| 10 Testability / types | 10 | Props exported correctly. |
 
 ### Problem 021 — notes
 
@@ -309,7 +326,7 @@
 
 ## Advancement
 
-- **Current:** Problem **022** — `tier-01/022-department-sku-search/` (`useEffect` reset when `departmentId` changes).
+- **Current:** Problem **023** — `tier-01/023-pick-line-filter-list/` (derive filtered list during render).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
