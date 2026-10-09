@@ -31,7 +31,8 @@
 | 021 | SKU lookup field | 1 | 65 | 95 | completed | 2026-10-10 |
 | 022 | Department SKU search | 1 | 68 | 96 | completed | 2026-10-10 |
 | 023 | Pick line filter list | 1 | 71 | 98 | completed | 2026-10-10 |
-| 024 | Pick line search panel | 1 | 74 | — | in progress | — |
+| 024 | Pick line search panel | 1 | 74 | 96 | completed | 2026-10-10 |
+| 025 | Pick line select list | 1 | 77 | — | in progress | — |
 
 ## Rubric history
 
@@ -62,6 +63,22 @@
 | 021 | 10 | 8 | 10 | 10 | 10 | 10 | 7 | 10 | 10 | 10 | **95** |
 | 022 | 10 | 8 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **96** |
 | 023 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | **98** |
+| 024 | 10 | 9 | 10 | 10 | 10 | 9 | 8 | 10 | 10 | 10 | **96** |
+
+### Problem 024 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Search + filter + empty state — 4/4 tests. |
+| 2 Idiomatic React | 9 | Local query + derived list; imports after types. |
+| 3 State design | 10 | Query colocated; no mirrored filter state. |
+| 4 Effects | 10 | None needed. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 9 | Panel layout good; list reuses 023 BEM block instead of panel classes. |
+| 7 Readability | 8 | Minor closing-tag formatting on `</section>`. |
+| 8 Edge cases | 10 | Live filter + empty state. |
+| 9 Accessibility | 10 | Label/`htmlFor` on search input. |
+| 10 Testability / types | 10 | Exported types match spec. |
 
 ### Problem 023 — notes
 
@@ -343,7 +360,7 @@
 
 ## Advancement
 
-- **Current:** Problem **024** — `tier-01/024-pick-line-search-panel/` (local search state + filtered list).
+- **Current:** Problem **025** — `tier-01/025-pick-line-select-list/` (controlled selection + `aria-pressed`).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
