@@ -33,7 +33,7 @@
 | 023 | Pick line filter list | 1 | 71 | 98 | completed | 2026-10-10 |
 | 024 | Pick line search panel | 1 | 74 | 96 | completed | 2026-10-10 |
 | 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
-| 026 | Inventory lookup race | 2 | 88 | — | in progress | — |
+| 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
 
 ## Rubric history
 
@@ -66,6 +66,22 @@
 | 023 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | **98** |
 | 024 | 10 | 9 | 10 | 10 | 10 | 9 | 8 | 10 | 10 | 10 | **96** |
 | 025 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **99** |
+| 026 | 8 | 7 | 8 | 9 | 8 | 6 | 7 | 8 | 10 | 9 | **82** |
+
+### Problem 026 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 8 | Abort + race test pass; empty query should clear `hits`; set `status: 'error'` on failure. |
+| 2 Idiomatic React | 7 | Hook lived in `solution.tsx`; side effect added in `InventoryLookupView` — keep logic in the hook only. |
+| 3 State design | 8 | Right state slices; warehouse reset belongs in hook `useEffect`, not the view. |
+| 4 Effects | 9 | `AbortController` cleanup is correct; add explicit `warehouseId` reset effect. |
+| 5 Performance | 8 | Fine; avoid duplicate reset effects in view + hook. |
+| 6 Composition | 6 | Broke provided-file boundary; container/view should stay untouched. |
+| 7 Readability | 7 | Core flow readable; use `===`, format consistently. |
+| 8 Edge cases | 8 | Race handled; idle/warehouse transitions needed tightening. |
+| 9 Accessibility | 10 | N/A in hook file. |
+| 10 Testability / types | 9 | 4/4 tests; export hook from `useInventoryLookup.ts` for clarity. |
 
 ### Problem 025 — notes
 
@@ -377,7 +393,7 @@
 
 ## Advancement
 
-- **Current:** Problem **026** — expert track — `tier-01/026-inventory-lookup-race/` (async + `AbortController`). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **027** — expert track (next: `useReducer` pick wave — TBD scaffold on request). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
