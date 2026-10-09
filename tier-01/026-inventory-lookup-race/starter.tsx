@@ -1,11 +1,5 @@
-import type { WarehouseOption } from './InventoryLookupView'
-
-export type InventoryLookupProps = {
-  warehouseId: string
-  warehouses: WarehouseOption[]
-  onWarehouseChange: (nextWarehouseId: string) => void
-}
-
-export function InventoryLookup(_props: InventoryLookupProps) {
-  return null
-}
+/**
+ * @deprecated Expert track: edit `useInventoryLookup.ts` only.
+ * This file is kept for older tooling; the container lives in `InventoryLookup.tsx`.
+ */
+export { InventoryLookup, type InventoryLookupProps } from './InventoryLookup'

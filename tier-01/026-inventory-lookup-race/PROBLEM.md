@@ -8,27 +8,30 @@
 
 ## Scenario
 
-Ops searches SKUs per **warehouse**. Network calls are slow; typing fast or switching warehouse must **not** flash results from an outdated query. You own React state/effects only — markup lives in `InventoryLookupView.tsx`.
+Ops searches SKUs per **warehouse**. Network calls are slow; typing fast or switching warehouse must **not** flash results from an outdated query.
+
+## Provided for you (do not edit)
+
+| File | Role |
+|------|------|
+| `InventoryLookupView.tsx` | All HTML / form controls |
+| `InventoryLookup.tsx` | Wires the view to your hook |
+| `skuSearchApi.ts` | Fake network + test overrides |
+| `solution.tsx` | Re-exports the container for tests |
 
 ## What you implement
 
-Edit **`solution.tsx` only** (unless you extract a custom hook in the same file).
+Edit **`useInventoryLookup.ts` only.**
 
-1. **Exports**
+1. **Signature** (keep exports as-is):
 
    ```ts
-   export type InventoryLookupProps = {
-     warehouseId: string
-     warehouses: WarehouseOption[]  // from InventoryLookupView
-     onWarehouseChange: (nextWarehouseId: string) => void
-   }
-
-   export function InventoryLookup(props: InventoryLookupProps): React.ReactElement
+   export function useInventoryLookup(params: UseInventoryLookupParams): UseInventoryLookupResult
    ```
 
 2. **Local state**
 
-   - `query` string (draft in the input).
+   - `query` string.
    - `status`: `'idle' | 'loading' | 'success' | 'error'`.
    - `hits: SkuHit[]`.
    - `errorMessage: string | null`.
@@ -40,24 +43,25 @@ Edit **`solution.tsx` only** (unless you extract a custom hook in the same file)
    - While a request is in flight for the current effect run → `loading`.
    - On success → `success` + `hits` from the API.
    - On failure → if `AbortError`, **do nothing** (stale request). Any other error → `error` with message `Search failed`.
-   - When **`warehouseId` prop changes** → reset `query` to `''` and return UI to `idle` (same behavior as switching warehouse in the view).
+   - When **`warehouseId` prop changes** → reset `query` to `''` and return UI to `idle`.
 
-4. **UI**
+4. **Handlers**
 
-   - Render `<InventoryLookupView />` with handlers; **do not** hand-write duplicate markup.
+   - `onQueryChange` updates `query`.
+   - `onWarehouseChange` forwards to `params.onWarehouseChange` (parent updates `warehouseId`).
 
 5. **Do not read** `EXPLANATION.md` until after grading.
 
 ## Acceptance criteria
 
 - Tests pass (`solution.test.tsx`).
-- No `hits` from a **previous** query after the user types a newer query (race test).
-- Warehouse change clears the search and does not leave old results on screen.
+- No stale `hits` after a newer query wins the race.
+- Warehouse change clears the search and old results.
 
 ## Constraints
 
 - No external data libraries (no React Query for this problem).
-- Abort via `AbortController` + effect cleanup (not a manual “request id” counter unless you also abort).
+- Abort via `AbortController` + effect cleanup.
 
 ## Hints
 
