@@ -32,7 +32,8 @@
 | 022 | Department SKU search | 1 | 68 | 96 | completed | 2026-10-10 |
 | 023 | Pick line filter list | 1 | 71 | 98 | completed | 2026-10-10 |
 | 024 | Pick line search panel | 1 | 74 | 96 | completed | 2026-10-10 |
-| 025 | Pick line select list | 1 | 77 | — | in progress | — |
+| 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
+| 026 | Inventory lookup race | 2 | 88 | — | in progress | — |
 
 ## Rubric history
 
@@ -64,6 +65,22 @@
 | 022 | 10 | 8 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **96** |
 | 023 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | **98** |
 | 024 | 10 | 9 | 10 | 10 | 10 | 9 | 8 | 10 | 10 | 10 | **96** |
+| 025 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **99** |
+
+### Problem 025 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Selection + `aria-pressed` — 3/3 tests. |
+| 2 Idiomatic React | 10 | Controlled selection, no local mirror state. |
+| 3 State design | 10 | Parent owns `selectedId`. |
+| 4 Effects | 10 | None required. |
+| 5 Performance | 10 | Fine. |
+| 6 Composition | 10 | Focused list component. |
+| 7 Readability | 10 | Clean map + buttons. |
+| 8 Edge cases | 10 | Empty list handled. |
+| 9 Accessibility | 10 | `type="button"`, `aria-pressed`. |
+| 10 Testability / types | 10 | Exported types match spec. |
 
 ### Problem 024 — notes
 
@@ -360,7 +377,8 @@
 
 ## Advancement
 
-- **Current:** Problem **025** — `tier-01/025-pick-line-select-list/` (controlled selection + `aria-pressed`).
+- **Current:** Problem **026** — expert track — `tier-01/026-inventory-lookup-race/` (async + `AbortController`). See [TRACK.md](./TRACK.md).
+- **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
