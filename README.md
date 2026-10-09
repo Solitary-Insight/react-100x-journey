@@ -3,7 +3,7 @@
 Graded React practice for Abdul Haseeb — 100 industry-style problems, TypeScript, Vitest + React Testing Library.
 
 - **Progress:** see [PROGRESS.md](./PROGRESS.md)
-- **Current problem:** `tier-01/023-pick-line-filter-list/`
+- **Current problem:** `tier-01/024-pick-line-search-panel/`
 - **Run tests:** `npm test` (from this directory)
 - **React version:** see `package.json` (currently React 19.x)
 

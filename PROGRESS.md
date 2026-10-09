@@ -30,7 +30,8 @@
 | 020 | Warehouse scan input | 1 | 62 | 97 | completed | 2026-10-06 |
 | 021 | SKU lookup field | 1 | 65 | 95 | completed | 2026-10-10 |
 | 022 | Department SKU search | 1 | 68 | 96 | completed | 2026-10-10 |
-| 023 | Pick line filter list | 1 | 71 | — | in progress | — |
+| 023 | Pick line filter list | 1 | 71 | 98 | completed | 2026-10-10 |
+| 024 | Pick line search panel | 1 | 74 | — | in progress | — |
 
 ## Rubric history
 
@@ -60,6 +61,22 @@
 | 020 | 9 | 9 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **97** |
 | 021 | 10 | 8 | 10 | 10 | 10 | 10 | 7 | 10 | 10 | 10 | **95** |
 | 022 | 10 | 8 | 10 | 9 | 10 | 10 | 9 | 10 | 10 | 10 | **96** |
+| 023 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 9 | 10 | **98** |
+
+### Problem 023 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 10 | Filter, trim, empty state, keys — 4/4 tests. |
+| 2 Idiomatic React | 10 | Derived `visible` during render. |
+| 3 State design | 10 | No mirrored filter state. |
+| 4 Effects | 10 | None needed. |
+| 5 Performance | 10 | Fine for pick-line scale. |
+| 6 Composition | 10 | Presentational list panel. |
+| 7 Readability | 10 | Clear conditional layout. |
+| 8 Edge cases | 10 | Whitespace query + no matches. |
+| 9 Accessibility | 9 | Semantic list; could add live region for empty (optional). |
+| 10 Testability / types | 10 | Exported types match spec. |
 
 ### Problem 022 — notes
 
@@ -326,7 +343,7 @@
 
 ## Advancement
 
-- **Current:** Problem **023** — `tier-01/023-pick-line-filter-list/` (derive filtered list during render).
+- **Current:** Problem **024** — `tier-01/024-pick-line-search-panel/` (local search state + filtered list).
 - Optional: re-implement **006** to spec for a re-grade.
 
 ## Notes
