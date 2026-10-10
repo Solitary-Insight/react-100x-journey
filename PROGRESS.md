@@ -35,7 +35,8 @@
 | 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
 | 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
 | 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
-| 028 | Debounced SKU search | 2 | 93 | — | in progress | — |
+| 028 | Debounced SKU search | 2 | 93 | 88 | completed | 2026-10-11 |
+| 029 | Warehouse session context | 2 | 95 | — | in progress | — |
 
 ## Rubric history
 
@@ -70,6 +71,22 @@
 | 025 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | **99** |
 | 026 | 8 | 7 | 8 | 9 | 8 | 6 | 7 | 8 | 10 | 9 | **82** |
 | 027 | 9 | 6 | 8 | 9 | 9 | 5 | 6 | 7 | 10 | 8 | **79** |
+| 028 | 9 | 8 | 8 | 9 | 9 | 9 | 7 | 8 | 10 | 9 | **88** |
+
+### Problem 028 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Timer + cleanup; `delayMs === 0` path — 4/4 tests. |
+| 2 Idiomatic React | 8 | Custom hook shape good; unused `useMemo` import. |
+| 3 State design | 8 | Prefer `useState(value)` over `"" as T`; empty `value` could skip timer. |
+| 4 Effects | 9 | Cleanup clears timeout only — correct. |
+| 5 Performance | 9 | Fine. |
+| 6 Composition | 9 | Logic isolated in hook file. |
+| 7 Readability | 7 | Formatting; remove dead import. |
+| 8 Edge cases | 8 | Clearing input to `''` still waits for timer. |
+| 9 Accessibility | 10 | N/A in hook. |
+| 10 Testability / types | 9 | Generic hook; easy to unit test with `renderHook`. |
 
 ### Problem 027 — notes
 
@@ -411,7 +428,7 @@
 
 ## Advancement
 
-- **Current:** Problem **028** — `tier-01/028-debounced-sku-search/` (`useDebouncedValue`). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **029** — `tier-01/029-warehouse-session-context/` (split context). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
