@@ -35,6 +35,7 @@
 | 025 | Pick line select list | 1 | 77 | 99 | completed | 2026-10-10 |
 | 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
 | 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
+| 028 | Debounced SKU search | 2 | 93 | — | in progress | — |
 
 ## Rubric history
 
@@ -410,7 +411,7 @@
 
 ## Advancement
 
-- **Current:** Problem **028** — expert track (next scaffold on request). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **028** — `tier-01/028-debounced-sku-search/` (`useDebouncedValue`). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
