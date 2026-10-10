@@ -1,5 +1,4 @@
-import { render, screen, act } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, act, fireEvent } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { DebouncedSkuSearch } from './solution'
 
@@ -17,51 +16,51 @@ describe('useDebouncedValue via DebouncedSkuSearch', () => {
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: (empty)')
   })
 
-  it('updates debounced text only after delay', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+  it('updates debounced text only after delay', () => {
     render(<DebouncedSkuSearch delayMs={300} />)
+    const input = screen.getByRole('textbox', { name: 'Search' })
 
-    await user.type(screen.getByRole('textbox', { name: 'Search' }), 'abc')
+    fireEvent.change(input, { target: { value: 'abc' } })
 
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: (empty)')
 
-    await act(async () => {
+    act(() => {
       vi.advanceTimersByTime(299)
     })
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: (empty)')
 
-    await act(async () => {
+    act(() => {
       vi.advanceTimersByTime(1)
     })
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: abc')
   })
 
-  it('resets the timer when typing continues', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+  it('resets the timer when typing continues', () => {
     render(<DebouncedSkuSearch delayMs={200} />)
+    const input = screen.getByRole('textbox', { name: 'Search' })
 
-    await user.type(screen.getByRole('textbox', { name: 'Search' }), 'a')
-    await act(async () => {
+    fireEvent.change(input, { target: { value: 'a' } })
+    act(() => {
       vi.advanceTimersByTime(150)
     })
-    await user.type(screen.getByRole('textbox', { name: 'Search' }), 'b')
+    fireEvent.change(input, { target: { value: 'ab' } })
 
-    await act(async () => {
+    act(() => {
       vi.advanceTimersByTime(199)
     })
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: (empty)')
 
-    await act(async () => {
+    act(() => {
       vi.advanceTimersByTime(1)
     })
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: ab')
   })
 
-  it('mirrors value immediately when delayMs is 0', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+  it('mirrors value immediately when delayMs is 0', () => {
     render(<DebouncedSkuSearch delayMs={0} />)
+    const input = screen.getByRole('textbox', { name: 'Search' })
 
-    await user.type(screen.getByRole('textbox', { name: 'Search' }), 'x')
+    fireEvent.change(input, { target: { value: 'x' } })
     expect(screen.getByRole('status')).toHaveTextContent('Debounced: x')
   })
 })
