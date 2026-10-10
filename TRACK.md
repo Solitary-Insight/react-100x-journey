@@ -17,6 +17,7 @@ From **026** onward:
 2. **027** — `useReducer` state machine (pick wave)
 3. **028** — custom `useDebouncedValue` + cleanup
 4. **029** — context store + selective subscriptions
-5. **030** — `useSyncExternalStore` or imperative store bridge
+5. **030** — `useTransition` for non-urgent list filter
+6. **031+** — formal external store / `useSyncExternalStore` polish (see 029)
 
 Tier-1 DOM drills are paused unless a score drops below **85**.

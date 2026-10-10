@@ -36,7 +36,8 @@
 | 026 | Inventory lookup race | 2 | 88 | 82 | completed | 2026-10-10 |
 | 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
 | 028 | Debounced SKU search | 2 | 93 | 88 | completed | 2026-10-11 |
-| 029 | Warehouse session context | 2 | 95 | — | in progress | — |
+| 029 | Warehouse session context | 2 | 95 | 83 | completed | 2026-10-11 |
+| 030 | Pick list transition | 2 | 96 | — | in progress | — |
 
 ## Rubric history
 
@@ -72,6 +73,22 @@
 | 026 | 8 | 7 | 8 | 9 | 8 | 6 | 7 | 8 | 10 | 9 | **82** |
 | 027 | 9 | 6 | 8 | 9 | 9 | 5 | 6 | 7 | 10 | 8 | **79** |
 | 028 | 9 | 8 | 8 | 9 | 9 | 9 | 7 | 8 | 10 | 9 | **88** |
+| 029 | 9 | 7 | 8 | 8 | 9 | 6 | 6 | 7 | 10 | 8 | **83** |
+
+### Problem 029 — notes
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Selective updates + form wiring — 2/2 tests. |
+| 2 Idiomatic React | 7 | `useSyncExternalStore` works; spec asked for split contexts. |
+| 3 State design | 8 | External store OK; provider `Context` value unused/stale. |
+| 4 Effects | 8 | Subscribe pattern correct; no `getServerSnapshot`. |
+| 5 Performance | 9 | Per-field snapshots avoid dock→operator rerenders. |
+| 6 Composition | 6 | `<WareHouseContext value>` should be `.Provider`; singleton global. |
+| 7 Readability | 6 | Typos (`getSnaphot`), dead imports/types. |
+| 8 Edge cases | 7 | Store state leaks across tests without reset. |
+| 9 Accessibility | 10 | Provided view. |
+| 10 Testability / types | 8 | Class store harder to reset than context reducer. |
 
 ### Problem 028 — notes
 
@@ -428,7 +445,7 @@
 
 ## Advancement
 
-- **Current:** Problem **029** — `tier-01/029-warehouse-session-context/` (split context). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **030** — `tier-01/030-pick-list-transition/` (`useTransition`). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 
