@@ -53,9 +53,9 @@ export function WarehouseSessionProvider({children}: { children: ReactNode }) {
   const [st,_]=useState(store.getSnaphot())
 
 
-  return( <WareHouseContext value={st}>
+  return( <WareHouseContext.Provider value={st}>
             {children}
-        </WareHouseContext>)
+        </WareHouseContext.Provider>)
 }
 
 

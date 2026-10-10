@@ -37,7 +37,8 @@
 | 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
 | 028 | Debounced SKU search | 2 | 93 | 88 | completed | 2026-10-11 |
 | 029 | Warehouse session context | 2 | 95 | 83 | completed | 2026-10-11 |
-| 030 | Pick list transition | 2 | 96 | — | in progress | — |
+| 030 | Pick list transition | 2 | 96 | 74 | completed | 2026-10-11 |
+| 031 | Order status fetch | 2 | 97 | — | in progress | — |
 
 ## Rubric history
 
