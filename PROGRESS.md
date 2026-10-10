@@ -37,7 +37,7 @@
 | 027 | Pick wave reducer | 2 | 91 | 79 | completed | 2026-10-10 |
 | 028 | Debounced SKU search | 2 | 93 | 88 | completed | 2026-10-11 |
 | 029 | Warehouse session context | 2 | 95 | 83 | completed | 2026-10-11 |
-| 030 | Pick list transition | 2 | 96 | 74 | completed | 2026-10-11 |
+| 030 | Pick list transition | 2 | 96 | 87 | completed | 2026-10-11 |
 | 031 | Order status fetch | 2 | 97 | — | in progress | — |
 
 ## Rubric history
@@ -75,6 +75,25 @@
 | 027 | 9 | 6 | 8 | 9 | 9 | 5 | 6 | 7 | 10 | 8 | **79** |
 | 028 | 9 | 8 | 8 | 9 | 9 | 9 | 7 | 8 | 10 | 9 | **88** |
 | 029 | 9 | 7 | 8 | 8 | 9 | 6 | 6 | 7 | 10 | 8 | **83** |
+| 030 | 6 | 7 | 6 | 7 | 8 | 8 | 6 | 5 | 10 | 8 | **74** |
+| 030-R2 | 9 | 9 | 8 | 7 | 9 | 9 | 7 | 8 | 10 | 9 | **87** |
+
+### Problem 030 — notes (R2 — **87**)
+
+| # | Score | Note |
+|---|-------|------|
+| 1 Correctness | 9 | Filter on `q` in transition; case-insensitive; empty trim → all lines. |
+| 2 Idiomatic React | 9 | Sync `query`, deferred `visibleLines` via `startTransition`. |
+| 3 State design | 8 | `query` + `visibleLines` OK; optional `deferredQuery` only. |
+| 4 Effects | 7 | Unused `useEffect` import; sync when `lines` prop changes. |
+| 5 Performance | 9 | Transition defers list work. |
+| 6 Composition | 9 | Hook isolated. |
+| 7 Readability | 7 | Use `===`; formatting. |
+| 8 Edge cases | 8 | Trim/empty covered; `lines` prop updates not handled. |
+| 9 Accessibility | 10 | Provided view. |
+| 10 Testability / types | 9 | Clear hook surface. |
+
+**R1 (74):** stale `query` in transition; tests passed via `.includes('')`.
 
 ### Problem 029 — notes
 
@@ -446,7 +465,7 @@
 
 ## Advancement
 
-- **Current:** Problem **030** — `tier-01/030-pick-list-transition/` (`useTransition`). See [TRACK.md](./TRACK.md).
+- **Current:** Problem **031** — `tier-01/031-order-status-fetch/` (`useReducer` + abort). See [TRACK.md](./TRACK.md).
 - **Paused:** DOM/BEM-heavy drills until scores drop below 85.
 - Optional: re-implement **006** to spec for a re-grade.
 

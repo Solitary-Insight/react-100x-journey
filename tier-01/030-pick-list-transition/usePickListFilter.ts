@@ -1,4 +1,4 @@
-import { useEffect, useState, useTransition } from 'react'
+import { useState, useTransition } from 'react'
 import type { PickLine } from './PickListView'
 
 export type UsePickListFilterResult = {
@@ -16,11 +16,13 @@ export function usePickListFilter(_lines: PickLine[]): UsePickListFilterResult {
 
   function onQueryChange(q:string){
     setQuery(q)
-    startTransition(()=>{
 
-      const filtered=_lines.filter(l=>l.label.includes(query.trim()))
+    startTransition(()=>{
+      const trimmed=q.trim()
+      const filtered=trimmed.length==0?_lines:_lines.filter(l=> l.label.toLowerCase().includes(trimmed.toLowerCase()))
       setVisibleLines(filtered)
     })
+
   }
 
   return {
