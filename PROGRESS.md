@@ -38,7 +38,8 @@
 | 028 | Debounced SKU search | 2 | 93 | 88 | completed | 2026-10-11 |
 | 029 | Warehouse session context | 2 | 95 | 83 | completed | 2026-10-11 |
 | 030 | Pick list transition | 2 | 96 | 87 | completed | 2026-10-11 |
-| 031 | Order status fetch | 2 | 97 | — | in progress | — |
+| 031 | Order status fetch | 2 | 97 | 73 | completed | 2026-10-11 |
+| 032 | Composed SKU lookup | 2 | 98 | — | in progress | — |
 
 ## Rubric history
 

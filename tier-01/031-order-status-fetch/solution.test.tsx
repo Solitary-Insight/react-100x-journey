@@ -37,7 +37,7 @@ describe('OrderStatusPanel', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Load status' }))
 
     fireEvent.change(input, { target: { value: 'fast' } })
-    fireEvent.click(screen.getByRole('button', { name: 'Load status' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Load status' }))
 
     await waitFor(() => {
       expect(screen.getByText(/Tracking: TRK-fast/)).toBeInTheDocument()
